@@ -62,14 +62,20 @@ import org.kohsuke.stapler.DataBoundConstructor;
 public class GitBucketPushTrigger extends Trigger<AbstractProject<?, ?>> {
 
     private boolean passThroughGitCommit;
+    private String repositoryUrlAliasName;
 
     @DataBoundConstructor
-    public GitBucketPushTrigger(boolean passThroughGitCommit) {
+    public GitBucketPushTrigger(boolean passThroughGitCommit, String repositoryUrlAliasName) {
         this.passThroughGitCommit = passThroughGitCommit;
+        this.repositoryUrlAliasName = repositoryUrlAliasName;
     }
 
     public boolean isPassThroughGitCommit() {
         return passThroughGitCommit;
+    }
+
+    public String getRepositoryUrlAliasName() {
+        return this.repositoryUrlAliasName;
     }
 
     public void onPost(final GitBucketPushRequest req) {

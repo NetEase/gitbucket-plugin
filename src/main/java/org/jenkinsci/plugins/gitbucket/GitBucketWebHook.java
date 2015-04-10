@@ -104,7 +104,8 @@ public class GitBucketWebHook implements UnprotectedRootAction {
                     continue;
                 }
                 List<String> urls = RepositoryUrlCollector.collect(job);
-                if (urls.contains(repositoryUrl.toLowerCase())) {
+                if (urls.contains(repositoryUrl.toLowerCase()) ||
+                        repositoryUrl.equals(trigger.getRepositoryUrlAliasName())) {
                     trigger.onPost(req);
                 }
             }

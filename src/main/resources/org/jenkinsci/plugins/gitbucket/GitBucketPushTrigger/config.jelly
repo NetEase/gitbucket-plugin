@@ -4,4 +4,8 @@
              title="${%Pass-through Git commit}">
       <f:checkbox />
     </f:entry>
+    <f:entry field="repositoryUrlAliasName"
+             title="${%Repository Url Alias Name}">
+      <f:textbox />
+    </f:entry>
 </j:jelly>
